@@ -1,0 +1,13 @@
+<!DOCTYPE commande [
+    <!ELEMENT commande (client, produits?)>
+    <!ELEMENT client (nom, prenom, adresse, ville, code_postal)>
+    <!ELEMENT produits (produit+)>
+    <!ELEMENT produit (nom, quantite, prix_unitaire)>
+    <!ELEMENT nom (#PCDATA)>
+    <!ELEMENT prenom (#PCDATA)>
+    <!ELEMENT adresse (#PCDATA)>
+    <!ELEMENT ville (#PCDATA)>
+    <!ELEMENT code_postal (#PCDATA)>
+    <!ELEMENT quantite (#PCDATA)>
+    <!ELEMENT prix_unitaire (#PCDATA)>
+]>

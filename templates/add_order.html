@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XML command generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles/add_order.css') }}">
+</head>
+<body>
+    <h1>XML command generator</h1>
+    <form action="/generate_xml" method="post">
+        <label for="client_nom">Firstame:</label>
+        <input type="text" id="client_nom" name="client_nom"><br>
+        <label for="client_prenom">Lastname:</label>
+        <input type="text" id="client_prenom" name="client_prenom"><br>
+        <label for="client_adresse">Adress:</label>
+        <input type="text" id="client_adresse" name="client_adresse"><br>
+        <label for="client_ville">City:</label>
+        <input type="text" id="client_ville" name="client_ville"><br>
+        <label for="client_code_postal">ZIP Code:</label>
+        <input type="text" id="client_code_postal" name="client_code_postal"><br>
+        <div id="products">
+            <div class="product">
+                <label for="produit_nom">Product Name:</label>
+                <input type="text" name="produit_nom[]"><br>
+                <label for="produit_quantite">Quentity:</label>
+                <input type="text" name="produit_quantite[]"><br>
+                <label for="produit_prix_unitaire">Unit Price:</label>
+                <input type="text" name="produit_prix_unitaire[]"><br>
+            </div>
+        </div>
+        <button type="button" id="add_product">Add Product</button><br>
+        <input type="submit" value="Générer XML">
+    </form>
+    <script>
+        document.getElementById("add_product").addEventListener("click", function() {
+            var productsDiv = document.getElementById("products");
+            var newProductDiv = document.createElement("div");
+            newProductDiv.classList.add("product");
+            newProductDiv.innerHTML = `
+                <label for="produit_nom">Nom du produit:</label>
+                <input type="text" name="produit_nom[]"><br>
+                <label for="produit_quantite">Quantité:</label>
+                <input type="text" name="produit_quantite[]"><br>
+                <label for="produit_prix_unitaire">Prix unitaire:</label>
+                <input type="text" name="produit_prix_unitaire[]"><br>
+            `;
+            productsDiv.appendChild(newProductDiv);
+        });
+    </script>
+</body>
+</html>

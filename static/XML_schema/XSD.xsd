@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="clientType">
+    <xs:sequence>
+      <xs:element name="nom" type="xs:string"/>
+      <xs:element name="prenom" type="xs:string"/>
+      <xs:element name="adresse" type="xs:string"/>
+      <xs:element name="ville" type="xs:string"/>
+      <xs:element name="code_postal" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="produitType">
+    <xs:sequence>
+      <xs:element name="nom" type="xs:string"/>
+      <xs:element name="quantite" type="xs:integer"/>
+      <xs:element name="prix_unitaire" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="commande">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="client" type="clientType"/>
+        <xs:element name="produits" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="produit" type="produitType" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

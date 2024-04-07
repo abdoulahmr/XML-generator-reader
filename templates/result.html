@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles/result.css') }}">
+
+</head>
+<body>
+    <h1>Client Information</h1>
+    <table border="1">
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Adresse</th>
+            <th>Ville</th>
+            <th>Code Postal</th>
+        </tr>
+        <tr>
+            <td>{{ client.nom }}</td>
+            <td>{{ client.prenom }}</td>
+            <td>{{ client.adresse }}</td>
+            <td>{{ client.ville }}</td>
+            <td>{{ client.code_postal }}</td>
+        </tr>
+    </table>
+
+    <h1>Produits</h1>
+    <table border="1">
+        <tr>
+            <th>Nom</th>
+            <th>Quantité</th>
+            <th>Prix Unitaire</th>
+        </tr>
+        {% for produit in produits %}
+        <tr>
+            <td>{{ produit.nom }}</td>
+            <td>{{ produit.quantite }}</td>
+            <td>{{ produit.prix_unitaire }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
